@@ -1,0 +1,39 @@
+---
+import logo from '../assets/logo.png';
+---
+
+<header class="sticky top-0 z-50 border-b border-gray-200 dark:border-gray-800 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm px-4 sm:px-10 lg:px-20 py-2 overflow-visible">
+  <div class="flex items-center justify-between relative">
+    <!-- Logo que lleva al home - Desbordante -->
+    <a href="/" class="flex items-center gap-4 hover:opacity-80 transition-opacity duration-300 -my-4">
+      <div class="relative">
+        <img 
+          src={logo.src} 
+          alt="M&B Maquinaria Agrícola Logo"
+          class="size-16 hover:scale-110 transition-transform duration-300 drop-shadow-lg"
+        />
+      </div>
+      <h1 class="text-black dark:text-white text-lg font-bold leading-tight hidden sm:inline">
+        M&B Maquinaria Agrícola
+      </h1>
+    </a>
+    
+    <nav class="hidden md:flex items-center gap-8">
+      <a class="text-black dark:text-white text-sm font-medium hover:text-primary transition-colors" href="#servicios">Servicios</a>
+      <a class="text-black dark:text-white text-sm font-medium hover:text-primary transition-colors" href="#maquinaria">Maquinaria</a>
+      <a class="text-black dark:text-white text-sm font-medium hover:text-primary transition-colors" href="#faq">Preguntas</a>
+      <a class="text-black dark:text-white text-sm font-medium hover:text-primary transition-colors" href="#contacto">Contacto</a>
+      <a class="px-4 py-2 rounded-lg bg-primary text-black text-sm font-bold hover:opacity-90 transition-opacity" href="#contacto">
+        Cotizar
+      </a>
+    </nav>
+    
+    <button class="md:hidden text-black dark:text-white">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </div>
+</header>
+
+<style>
+  /* Mobile menu handling aquí después si es necesario */
+</style>
