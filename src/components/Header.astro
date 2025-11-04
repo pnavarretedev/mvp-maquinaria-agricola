@@ -18,6 +18,7 @@ import logo from '../assets/logo.png';
       </h1>
     </a>
     
+    <!-- Navegación Desktop -->
     <nav class="hidden md:flex items-center gap-8">
       <a class="text-black dark:text-white text-sm font-medium hover:text-primary transition-colors" href="#servicios">Servicios</a>
       <a class="text-black dark:text-white text-sm font-medium hover:text-primary transition-colors" href="#maquinaria">Maquinaria</a>
@@ -28,12 +29,76 @@ import logo from '../assets/logo.png';
       </a>
     </nav>
     
-    <button class="md:hidden text-black dark:text-white">
-      <span class="material-symbols-outlined">menu</span>
+    <!-- Botón Hamburguesa Mobile -->
+    <button id="mobile-menu-btn" class="md:hidden text-black dark:text-white z-50">
+      <span class="material-symbols-outlined text-2xl" id="menu-icon">menu</span>
     </button>
   </div>
+
+  <!-- Menú Mobile -->
+  <nav id="mobile-menu" class="hidden absolute top-full left-0 right-0 bg-background-light dark:bg-background-dark border-b border-gray-200 dark:border-gray-800 md:hidden">
+    <div class="flex flex-col gap-4 p-6">
+      <a class="text-black dark:text-white text-sm font-medium hover:text-primary transition-colors" href="#servicios">Servicios</a>
+      <a class="text-black dark:text-white text-sm font-medium hover:text-primary transition-colors" href="#maquinaria">Maquinaria</a>
+      <a class="text-black dark:text-white text-sm font-medium hover:text-primary transition-colors" href="#faq">Preguntas</a>
+      <a class="text-black dark:text-white text-sm font-medium hover:text-primary transition-colors" href="#contacto">Contacto</a>
+      <a class="px-4 py-2 rounded-lg bg-primary text-black text-sm font-bold hover:opacity-90 transition-opacity text-center" href="#contacto">
+        Cotizar
+      </a>
+    </div>
+  </nav>
 </header>
 
+<script>
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+
+  // Toggle del menú
+  menuBtn?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+    menuIcon!.textContent = mobileMenu?.classList.contains('hidden') ? 'menu' : 'close';
+  });
+
+  // Cerrar menú al hacer click en un link
+  const menuLinks = mobileMenu?.querySelectorAll('a');
+  menuLinks?.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+      menuIcon!.textContent = 'menu';
+    });
+  });
+</script>
+
 <style>
-  /* Mobile menu handling aquí después si es necesario */
+  #mobile-menu {
+    animation: slideDown 0.3s ease-out;
+  }
+
+  #mobile-menu.hidden {
+    animation: slideUp 0.3s ease-out;
+    display: none;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+  }
 </style>
